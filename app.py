@@ -446,7 +446,7 @@ def on_message(client, userdata, msg):
         condition = "Menganalisis..."
         if model and label_encoder:
             try:
-                features = np.array([[payload['temperature'], payload['humidity'], payload['light_raw'], payload['motion']]])
+                features = np.array([[payload['temperature'], payload['humidity'], payload['light'], payload['motion']]])
                 idx = model.predict(features)[0]
                 condition = label_encoder.inverse_transform([idx])[0]
             except:
@@ -458,7 +458,7 @@ def on_message(client, userdata, msg):
             'datetime': datetime.now(),
             'temp': payload['temperature'],
             'hum': payload['humidity'],
-            'light': payload['light_raw'],
+            'light': payload['light'],
             'motion': payload['motion'],
             'cond': condition
         }

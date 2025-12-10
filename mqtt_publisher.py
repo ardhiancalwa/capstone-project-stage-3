@@ -46,7 +46,7 @@ def publish(client):
         payload = {
             "temperature": temp,
             "humidity": hum,
-            "light_raw": light,  # Sesuai dataset
+            "light": light,  # Sesuai dataset
             "motion": motion     # Sesuai dataset (0 atau 1)
         }
         
